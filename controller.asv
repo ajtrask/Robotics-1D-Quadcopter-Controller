@@ -1,0 +1,29 @@
+function [ u ] = pd_controller(~, s, s_des, params)
+%PD_CONTROLLER  PD controller for the height
+%
+%   s: 2x1 vector containing the current state [z; v_z]
+%   s_des: 2x1 vector containing desired state [z; v_z]
+%   params: robot parameters
+
+u = 0;
+
+
+% FILL IN YOUR CODE HERE
+params.gravity = 9.81;
+params.mass = 0.18;
+params.arm_length = 0.086;
+
+% Actuator limits
+params.u_min = 0;
+params.u_max = 1.2*params.mass*params.gravity;
+
+
+Kp=0.5;
+Kv=0.5;
+e=s_des-s;
+u=params.mass*(z_dd_des + Kp*e(1)+Kv*e(2)+params.gravity;
+if u>params.u_max u=params.u_max;
+if u<params.u_min 
+
+end
+
